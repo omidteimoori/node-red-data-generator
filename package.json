@@ -1,0 +1,35 @@
+{
+  "name": "@omidteimoori/node-red-data-generator",
+  "version": "1.0.0",
+  "description": "A customizable Node-RED node to simulate various data patterns including sinusoidal, random, rising, falling, square, triangle, and sawtooth. Ideal for testing and prototyping dashboards, PLC interfaces, and IoT flows.",
+  "main": "data-generator.js",
+  "keywords": [
+    "node-red",
+    "simulation",
+    "generator",
+    "data",
+    "iot",
+    "test",
+    "synthetic",
+    "sinusoidal",
+    "sawtooth",
+    "triangle",
+    "debug",
+    "dashboard"
+  ],
+  "author": "Omid Teimoori <omid@teimoori.com> (https://omidteimoori.com)",
+  "license": "MIT",
+  "homepage": "https://omidteimoori.com/projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omidteimoori/node-red-data-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/omidteimoori/node-red-data-generator/issues"
+  },
+  "node-red": {
+    "nodes": {
+      "data-generator": "data-generator.js"
+    }
+  }
+}

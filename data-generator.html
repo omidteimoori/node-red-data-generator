@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    RED.nodes.registerType('data-generator', {
+        category: 'function',
+        color: '#E2D96E',
+        defaults: {
+            name: { value: "" },
+            datatype: { value: "sinusoidal" },
+            frequency: { value: 1000 },
+            min: { value: 0 },
+            max: { value: 100 },
+            step: { value: 1 }
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "font-awesome/fa-random",
+        label: function () {
+            return this.name || `${this.datatype} (${this.frequency}ms)`;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="data-generator">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-datatype"><i class="fa fa-sliders"></i> Type</label>
+        <select id="node-input-datatype">
+            <option value="sinusoidal">Sinusoidal</option>
+            <option value="random">Random</option>
+            <option value="rising">Rising</option>
+            <option value="falling">Falling</option>
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+            <option value="exponential">Exponential</option>
+            <option value="sine+noise">Sine + Noise</option>
+            <option value="stepchange">Step Change</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-frequency"><i class="fa fa-clock-o"></i> Frequency (ms)</label>
+        <input type="number" id="node-input-frequency" min="10" step="10">
+    </div>
+    <div class="form-row">
+        <label for="node-input-min"><i class="fa fa-arrow-down"></i> Min</label>
+        <input type="number" id="node-input-min">
+    </div>
+    <div class="form-row">
+        <label for="node-input-max"><i class="fa fa-arrow-up"></i> Max</label>
+        <input type="number" id="node-input-max">
+    </div>
+    <div class="form-row">
+        <label for="node-input-step"><i class="fa fa-step-forward"></i> Step</label>
+        <input type="number" id="node-input-step" min="0.001" step="0.001" oninput="
+            const maxVal = parseFloat(document.getElementById('node-input-max').value);
+            if (!isNaN(maxVal) && parseFloat(this.value) > maxVal) {
+                this.value = maxVal;
+            }
+        ">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="data-generator">
+    <p>This node generates simulated data automatically after deployment. It supports various waveforms to simulate data such as sinusoidal, random, rising, falling, square, triangle, and sawtooth.</p>
+    <ul>
+        <li><b>Sinusoidal</b> - Smooth wave oscillating between min and max</li>
+        <li><b>Random</b> - Random values between min and max</li>
+        <li><b>Rising</b> - Linearly increasing value, resets at max</li>
+        <li><b>Falling</b> - Linearly decreasing value, resets at min</li>
+        <li><b>Square</b> - Alternates sharply between min and max</li>
+        <li><b>Triangle</b> - Increases then decreases linearly between bounds</li>
+        <li><b>Exponential</b> - Exponential rise between min and max</li>
+        <li><b>Sine + Noise</b> - Sine wave with random fluctuations</li>
+        <li><b>Step Change</b> - Sudden jumps from one value to another</li>
+    </ul>
+    <p style="margin-top: 1em; font-size: 0.85em; color: #777;">
+        Developed by <b>Omid Teimoori</b> - <a href="https://omidteimoori.com" target="_blank">omidteimoori.com</a>
+    </p>
+</script>
