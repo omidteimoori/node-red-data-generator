@@ -2,7 +2,7 @@
 
 A custom Node-RED node to simulate various data types such as **sinusoidal**, **random**, **rising**, **falling**, **square**, **triangle**, and **sawtooth** values. Ideal for testing dashboards, signal processing, OPC UA mockups, or edge device emulation.
 
-## 📦 Features
+## Features
 
 - Outputs data automatically after deployment (no trigger required)
 - Supports:
@@ -19,7 +19,7 @@ A custom Node-RED node to simulate various data types such as **sinusoidal**, **
   - Step size
 - Sets `msg.payload` to the generated value and `msg.topic` to the selected data type
 
-## 🛠 Installation
+## Installation
 
 You can link it locally while developing:
 
@@ -28,7 +28,7 @@ cd ~/.node-red
 npm install @omidteimoori/node-red-data-generator
 ```
 
-## 🧪 Usage
+## Usage
 
 1. Open the Node-RED editor
 2. Drag the **Data Generator** node from the "function" category
@@ -39,12 +39,12 @@ npm install @omidteimoori/node-red-data-generator
    - Step: Precision or ramp size
 
 
-## 👨‍💻 Author
+## Author
 
 Developed by [Omid Teimoori](https://omidteimoori.com)  
 MIT License
 
-## 🔗 Related
+## Related
 
 - [Node-RED](https://nodered.org/)
 - [Other Projects](https://omidteimoori.com/projects.html)
